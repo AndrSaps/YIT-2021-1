@@ -13,7 +13,7 @@
             <div *ngIf="!task.CategoryName">Other</div>
         </mat-chip>
         <div class="right-side">
-            <div *ngIf="task.Deadline" style="margin-top:12px;">{{task.Deadline|date:"mediumDate"}}</div>
+            <div *ngIf="task.Deadline" class="mt-12-px">{{task.Deadline|date:"mediumDate"}}</div>
             <button mat-icon-button (click)="removeTask(task)"><mat-icon >cancel</mat-icon></button>
             </div>
     </mat-list-item>
