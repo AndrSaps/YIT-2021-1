@@ -1,0 +1,22 @@
+
+.checkbox-style{
+    margin-bottom: 4px;
+    margin-right: 13px;
+}
+.chip_category{
+    text-shadow:    
+    -1px -1px 0 black,  
+    1px -1px 0  black,
+    -1px 1px 0  black,
+     1px 1px 0  black;
+}
+
+
+.right-side {
+    display:flex;
+    margin-inline-start:auto;
+}
+
+.task-row{
+    border: 1px solid black;
+}

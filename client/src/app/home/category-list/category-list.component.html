@@ -1,0 +1,16 @@
+<mat-form-field class="example-chip-list">
+  <mat-chip-list #chipList aria-label="Fruit selection">
+  <mat-chip class="chip-list-text" *ngFor="let category of Categories_list"
+    [style.background-color]="category.Color"
+      [removable]="removable" (removed)="remove(category)">
+      {{category.Name}}<div></div>
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+    <input style="margin-top:25px" 
+          placeholder=""
+           [matChipInputFor]="chipList"
+           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+           [matChipInputAddOnBlur]="addOnBlur"
+           (matChipInputTokenEnd)="add($event)">
+  </mat-chip-list>
+</mat-form-field>

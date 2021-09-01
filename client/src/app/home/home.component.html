@@ -1,0 +1,23 @@
+<mat-drawer-container class="example-container" [hasBackdrop]="true" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="over">
+      <p>Task Categories</p>
+      <category-list></category-list>
+
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+
+      <h1 class="app-title">ToDoAPP</h1>
+     
+        <div class="buttons-above-menu">
+        <add-task-form (newTask)="getTask($event)"></add-task-form>
+        <button mat-raised-button color="primary" mat-button (click)="drawer.toggle()">
+          Show Categories
+        </button>
+      </div>
+      
+      <menu-tabs (delTask)="removeTask($event)" [tasks]="tasks"></menu-tabs>
+    
+    </div>
+  
+  </mat-drawer-container>

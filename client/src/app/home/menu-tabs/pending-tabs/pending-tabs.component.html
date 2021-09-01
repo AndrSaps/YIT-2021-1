@@ -1,0 +1,48 @@
+<mat-tab-group mat-align-tabs="center" animationDuration="1000ms" dynamicHeight>
+    <mat-tab label="Pending tasks">
+    
+
+<mat-selection-list>
+    <div *ngFor="let task of tasks" >
+        <div class="task-row" *ngIf="!task.Status">
+        <mat-list-item style="width: 100%;" >
+        <mat-checkbox [(ngModel)]="task.Status" class="checkbox-style" (click)="changeStatus(task)"></mat-checkbox><div>{{task.Text}}</div>
+        <mat-chip class="chip_category"   style="margin-left: 20px;"
+        [style.background-color]="task.Color">
+            <div *ngIf="task.CategoryName">{{task.CategoryName}}</div>
+            <div *ngIf="!task.CategoryName">Other</div>
+        </mat-chip>
+        <div class="right-side">
+            <div *ngIf="task.Deadline" style="margin-top:12px;">{{task.Deadline|date:"mediumDate"}}</div>
+            <button mat-icon-button (click)="removeTask(task)"><mat-icon >cancel</mat-icon></button>
+            </div>
+    </mat-list-item>
+    
+    </div>
+</div>
+  </mat-selection-list>
+  <h1 style="text-align:center;" *ngIf="getPendingCount()==0">You dont have any tasks! Create it!</h1>
+</mat-tab>
+<mat-tab label="Completed tasks">
+    <mat-selection-list>
+        <div  *ngFor="let task of tasks" >
+            <div class="task-row" *ngIf="task.Status">
+            <mat-list-item style="width: 100%;" >
+            <mat-checkbox [(ngModel)]="task.Status" class="checkbox-style" (click)="changeStatus(task)"></mat-checkbox><div>{{task.Text}}</div>
+            <mat-chip class="chip_category" style="margin-left: 20px;"
+            [style.background-color]="task.Color">
+                <div *ngIf="task.CategoryName">{{task.CategoryName}}</div>
+                <div *ngIf="!task.CategoryName">Other</div>
+            </mat-chip>
+            <div class="right-side">
+                <div *ngIf="task.Deadline" style="margin-top:12px;">{{task.Deadline|date:"mediumDate"}}</div>
+                <!--<button mat-icon-button><mat-icon>edit</mat-icon></button>-->
+                <button mat-icon-button (click)="removeTask(task)"><mat-icon >cancel</mat-icon></button>
+                </div>
+        </mat-list-item>
+        </div>
+    </div>
+      </mat-selection-list>
+      <h1 style="text-align:center;" *ngIf="getCompletedCount()==0">You dont have any completed tasks!</h1>
+</mat-tab>
+</mat-tab-group>
